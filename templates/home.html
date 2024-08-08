@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="row row justify-content-md-center">
+    <div class="col col-lg-8">
+        <h1 class="text-center my-3">Create Video by Submitting Script</h1>
+        <form action="{% url 'make_video' %}" method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Your Video Name</label>
+                <input type="text" class="form-control" name="video_name">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Your Video Script</label>
+                <textarea class="form-control" name="content" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mb-3">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}
